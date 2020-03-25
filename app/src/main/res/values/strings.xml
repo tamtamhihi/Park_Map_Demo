@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Park Map Official</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="autocomplete_hint">Search</string>
+    <string name="price_label">Price:</string>
+    <string name="comment_label">Comments:</string>
+    <string name="comment_not_available">There\'s no available comments</string>
+    <string name="not_available_field">This information is not available now.</string>
+    <string name="search_hint">Search</string>
+    <string name="english">English</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="feedback_title">Feedback Form</string>
+    <string name="feedback_caption">Your feedback helps us improve our application and enhance your experience.</string>
+    <string name="subject_label">Subject:</string>
+    <string name="subject_hint">(Optional)</string>
+    <string name="feedback_label">Your feedback:</string>
+    <string name="feedback_hint">Your feedback here</string>
+    <string name="submit_button">Submit</string>
+    <string name="feedback_ask">Please add feedback so that we could improve our app performance.</string>
+    <string name="email_via">Send email via:</string>
+    <string name="no_email_clients">There\'s no email clients installed.</string>
+    <string name="about_us_title">About Us</string>
+    <string name="app_overall_title">Overall</string>
+    <string name="app_overall">ParkMap is a product developed by a group of freshmen from the Advanced Program in Computer Science, class of 2023, of Ho Chi Minh University of Science. This product is due to take part in the Solution Challenge 2020 hosted by Google Developer Students Club Community.</string>
+    <string name="app_purpose_title">Purpose</string>
+    <string name="app_purpose">Based on the local massive usage of personal motorbikes, we found the need for a light-weight application that can help people locate the nearest parking lot so as to avoid wasting their time under the humid weather of Ho Chi Minh City.</string>
+    <string name="app_help_title">Help us</string>
+    <string name="app_help">We would appreciate your help to improve our application performance or broaden our database by contacting us directly at parkmap@gmail.com.</string>
+</resources>

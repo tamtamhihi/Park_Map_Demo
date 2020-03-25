@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Day theme-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/ThemeAnimationTransition</item>
+        <item name="layoutBackground">@style/backgroundDay</item>
+        <item name="cardBackground">@style/cardBackgroundDay</item>
+        <item name="textTitle">@style/textTitleDay</item>
+        <item name="textCaption">@style/textCaptionDay</item>
+        <item name="buttonTintColor">@style/buttonTintDay</item>
+        <item name="buttonBackground">@drawable/button_background_selector</item>
+        <item name="bottomNavIcon">@style/bottomNavIconDay</item>
+        <item name="fab">@style/fabDay</item>
+        <item name="iconStyle">@style/iconDay</item>
+        <item name="textMenu">@style/textMenuDay</item>
+    </style>
+
+    <!-- Night theme-->
+    <style name="AppThemeDark" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/ThemeAnimationTransition</item>
+        <item name="layoutBackground">@style/backgroundNight</item>
+        <item name="cardBackground">@style/cardBackgroundNight</item>
+        <item name="textTitle">@style/textTitleNight</item>
+        <item name="textCaption">@style/textCaptionNight</item>
+        <item name="buttonTintColor">@style/buttonTintNight</item>
+        <item name="buttonBackground">@drawable/button_background_selector</item>
+        <item name="bottomNavIcon">@style/bottomNavIconNight</item>
+        <item name="fab">@style/fabNight</item>
+        <item name="iconStyle">@style/iconNight</item>
+        <item name="textMenu">@style/textMenuNight</item>
+    </style>
+</resources>

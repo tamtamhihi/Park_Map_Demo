@@ -1,0 +1,98 @@
+<resources>
+
+    <!-- Mutual styles for both themes-->
+    <style name="cardBackground">
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+    <style name="textTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/source_sans_pro</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textCaption" parent="TextAppearance.AppCompat.Menu">
+        <item name="fontFamily">@font/source_sans_pro</item>
+    </style>
+    <style name="ThemeAnimationTransition">
+        <item name="android:windowEnterTransition">@android:animator/fade_in</item>
+        <item name="android:windowExitAnimation">@android:animator/fade_out</item>
+    </style>
+    <style name="bottomNavIcon" parent="Widget.Design.BottomNavigationView">
+        <item name="itemTextAppearance">@style/TextAppearance.AppCompat.Menu</item>
+        <item name="fontFamily">@font/source_sans_pro</item>
+    </style>
+    <style name="fab" parent="Widget.Design.FloatingActionButton">
+    </style>
+    <style name="buttonSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:buttonTint">@color/colorAccent</item>
+        <item name="colorSwitchThumbNormal">@color/colorAccent</item>
+    </style>
+    <style name="textMenu" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="dialogCornerRadius">8dp</item>
+    </style>
+
+    <!-- Styles for Day Theme-->
+    <style name="backgroundDay">
+        <item name="android:background">#fcfcfc</item>
+    </style>
+    <style name="cardBackgroundDay" parent="cardBackground">
+        <item name="android:background">#ffffff</item>
+        <item name="cardBackgroundColor">#ffffff</item>
+    </style>
+    <style name="textTitleDay" parent="textTitle">
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="textCaptionDay" parent="textCaption">
+        <item name="android:textColor">#AAAAAA</item>
+    </style>
+    <style name="buttonTintDay">
+        <item name="tint">#ffffff</item>
+    </style>
+    <style name="bottomNavIconDay" parent="bottomNavIcon">
+        <item name="itemIconTint">@color/bottom_nav_icon_day</item>
+        <item name="itemTextColor">@color/bottom_nav_icon_day</item>
+    </style>
+    <style name="fabDay" parent="fab">
+        <item name="android:tint">#ffffff</item>
+    </style>
+    <style name="iconDay">
+        <item name="iconTint">#000000</item>
+    </style>
+    <style name="textMenuDay" parent="textMenu">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <!-- Styles for Night Theme-->
+    <style name="backgroundNight">
+        <item name="android:background">#303030</item>
+    </style>
+    <style name="cardBackgroundNight" parent="cardBackground">
+        <item name="android:background">#424242</item>
+        <item name="cardBackgroundColor">#424242</item>
+    </style>
+    <style name="textTitleNight" parent="textTitle">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="textCaptionNight" parent="textCaption">
+        <item name="android:textColor">#edeaea</item>
+    </style>
+    <style name="buttonTintNight">
+        <item name="tint">#000000</item>
+    </style>
+    <style name="bottomNavIconNight" parent="bottomNavIcon">
+        <item name="itemIconTint">@color/bottom_nav_icon_night</item>
+        <item name="itemTextColor">@color/bottom_nav_icon_night</item>
+    </style>
+    <style name="fabNight" parent="fab">
+        <item name="android:tint">#000000</item>
+    </style>
+    <style name="iconNight">
+        <item name="iconTint">#ffffff</item>
+    </style>
+    <style name="textMenuNight" parent="textMenu">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+</resources>

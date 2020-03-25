@@ -1,0 +1,2 @@
+rootProject.name='Park Map Official'
+include ':app'

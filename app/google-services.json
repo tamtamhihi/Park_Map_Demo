@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "190128525496",
+    "firebase_url": "https://mapsautocomplete-62e2c.firebaseio.com",
+    "project_id": "mapsautocomplete-62e2c",
+    "storage_bucket": "mapsautocomplete-62e2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190128525496:android:89bd52fff4553a65d6244d",
+        "android_client_info": {
+          "package_name": "com.example.mapsautocomplete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190128525496-idb3sd3jou3e3qpdpq6ovk8dfohdgu5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mapsautocomplete",
+            "certificate_hash": "4ff8a41484958df891812eea08b13ff243304f29"
+          }
+        },
+        {
+          "client_id": "190128525496-63g7i8pebeo754sp5hd3sqin923ok7gh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0kAEKMRAtiRzL1NG3iwWPUdeF29bWkZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190128525496-63g7i8pebeo754sp5hd3sqin923ok7gh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190128525496:android:033f88e5d34d44a7d6244d",
+        "android_client_info": {
+          "package_name": "com.example.parkmapofficial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190128525496-fjlad6plu6uo6lbhnqrli2ot5s04k277.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkmapofficial",
+            "certificate_hash": "9e7a6796dcae392ee144054becd01ac36a699bc1"
+          }
+        },
+        {
+          "client_id": "190128525496-63g7i8pebeo754sp5hd3sqin923ok7gh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0kAEKMRAtiRzL1NG3iwWPUdeF29bWkZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190128525496-63g7i8pebeo754sp5hd3sqin923ok7gh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

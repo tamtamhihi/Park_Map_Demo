@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Park Map Official</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_dashboard">Tra cứu</string>
+    <string name="title_notifications">Thông báo</string>
+</resources>

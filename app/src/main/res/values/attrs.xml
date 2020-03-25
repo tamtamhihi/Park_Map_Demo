@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="layoutBackground" format="reference"/>
+        <attr name="cardBackground" format="reference"/>
+        <attr name="textTitle" format="reference"/>
+        <attr name="textCaption" format="reference"/>
+        <attr name="buttonTintColor" format="reference"/>
+        <attr name="buttonBackground" format="reference"/>
+        <attr name="bottomNavIcon" format="reference"/>
+        <attr name="fab" format="reference"/>
+        <attr name="iconStyle" format="reference"/>
+        <attr name="textMenu" format="reference"/>
+    </declare-styleable>
+</resources>
