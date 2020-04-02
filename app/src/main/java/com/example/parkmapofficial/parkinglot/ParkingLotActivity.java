@@ -1,12 +1,14 @@
 package com.example.parkmapofficial.parkinglot;
 
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,6 +69,7 @@ public class ParkingLotActivity extends AppCompatActivity {
     private RecyclerView userRating;
     private TextView mRatingEmpty;
 
+
     private GeocodingAPI geocodingAPI;
     String placeId;
 
@@ -90,70 +93,30 @@ public class ParkingLotActivity extends AppCompatActivity {
         String mPrice = item.getPrice();
         ArrayList<UserRating> mUserRating = item.getUserRatings();
 
-        // Fetch place ID
-        try {
-            geocodingAPI = new GeocodingAPI(item.getLatitude(), item.getLongitude());
-        } catch (MalformedURLException e) {
-            Log.e(ERROR_TAG, "MalformedURLException: " + e);
-        }
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (geocodingAPI != null) {
-                    try {
-                        placeId = geocodingAPI.getPlaceId();
-                    } catch (IOException e) {
-                        Log.e(ERROR_TAG, "IOException: " + e);
-                    } catch (JSONException e) {
-                        Log.e(ERROR_TAG, "JSONException: " + e);
-                    }
-                }
-            }
-        });
-        thread.start();
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (geocodingAPI != null) {
+//                    try {
+//                        placeId = geocodingAPI.getPlaceId();
+//                        Log.d("place_in_theard", placeId);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                } else Toast.makeText(ParkingLotActivity.this,"tu cho nay",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        thread.start();
+        new getplaceid().execute();
 
-        // Initialize places client
-        Places.initialize(this, getString(R.string.google_api_key));
-        final PlacesClient client = Places.createClient(this);
+
 
         // Get metadata
-        if (placeId != null) {
-            List<Place.Field> fields = Arrays.asList(Place.Field.PHOTO_METADATAS);
-            Log.d(ERROR_TAG, "Place ID: " + placeId);
-            FetchPlaceRequest request = FetchPlaceRequest.newInstance(placeId, fields);
-            client.fetchPlace(request).addOnSuccessListener(new OnSuccessListener<FetchPlaceResponse>() {
-                @Override
-                public void onSuccess(FetchPlaceResponse fetchPlaceResponse) {
-                    Place place = fetchPlaceResponse.getPlace();
-                    List<PhotoMetadata> photoMetadatas = place.getPhotoMetadatas();
-                    assert photoMetadatas != null;
-                    for (PhotoMetadata photo : photoMetadatas) {
-                        FetchPhotoRequest photoRequest = FetchPhotoRequest.builder(photo).build();
-                        client.fetchPhoto(photoRequest).addOnSuccessListener(new OnSuccessListener<FetchPhotoResponse>() {
-                            @Override
-                            public void onSuccess(FetchPhotoResponse fetchPhotoResponse) {
-                                Bitmap bitmap = fetchPhotoResponse.getBitmap();
-                                imageBitmaps.add(bitmap);
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                if (e instanceof ApiException) {
-                                    ApiException exception = (ApiException) e;
-                                    Log.e(ERROR_TAG, "Api exception: " + e);
-                                }
-                            }
-                        });
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.e(ERROR_TAG, "Exception: " + e.getMessage());
-                }
-            });
-        }
+
         // Get views in app bar layout
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -194,6 +157,81 @@ public class ParkingLotActivity extends AppCompatActivity {
         Log.d("duma", "on Create of parking lot activity finished");
     }
 
+    private class getplaceid extends AsyncTask<Void,GeocodingAPI,String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+            // Fetch place ID
+            try {
+                geocodingAPI = new GeocodingAPI(item.getLatitude(), item.getLongitude());
+            } catch (MalformedURLException e) {
+                Log.e(ERROR_TAG, "MalformedURLException: " + e);
+            }
+            try {
+                return geocodingAPI.getPlaceId();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            placeId = s;
+
+            // Initialize places client
+            Places.initialize(ParkingLotActivity.this, getString(R.string.google_api_key));
+            final PlacesClient client = Places.createClient(ParkingLotActivity.this);
+
+            if (placeId != null) {
+                List<Place.Field> fields = Arrays.asList(Place.Field.PHOTO_METADATAS);
+                Log.d(ERROR_TAG, "Place ID: " + placeId);
+                FetchPlaceRequest request = FetchPlaceRequest.newInstance(placeId, fields);
+                client.fetchPlace(request).addOnSuccessListener(new OnSuccessListener<FetchPlaceResponse>() {
+                    @Override
+                    public void onSuccess(FetchPlaceResponse fetchPlaceResponse) {
+                        Log.d("client_ok", "danhl");
+                        Place place = fetchPlaceResponse.getPlace();
+                        List<PhotoMetadata> photoMetadatas = place.getPhotoMetadatas();
+                        assert photoMetadatas != null;
+
+                        for (PhotoMetadata photo : photoMetadatas) {
+
+                            FetchPhotoRequest photoRequest = FetchPhotoRequest.builder(photo).build();
+                            client.fetchPhoto(photoRequest).addOnSuccessListener(new OnSuccessListener<FetchPhotoResponse>() {
+                                @Override
+                                public void onSuccess(FetchPhotoResponse fetchPhotoResponse) {
+                                    Bitmap bitmap = fetchPhotoResponse.getBitmap();
+                                    imageBitmaps.add(bitmap);
+                                    Toast.makeText(ParkingLotActivity.this, "succed", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    if (e instanceof ApiException) {
+                                        ApiException exception = (ApiException) e;
+                                        Log.e(ERROR_TAG, "Api exception: " + e);
+                                        Toast.makeText(ParkingLotActivity.this, "fail :((", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(ERROR_TAG, "Exception: " + e.getMessage());
+                        Log.d("Fail2","Nah~");
+                    }
+                });
+            }
+
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -211,3 +249,4 @@ public class ParkingLotActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fragment_open_enter, R.anim.fragment_close_exit);
     }
 }
+
